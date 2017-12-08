@@ -1,4 +1,4 @@
 class Product < ActiveRecord::Base
   validates :name, presence: true
-  validate :price, prescense: true
+  validates :price, presence: true
 end
