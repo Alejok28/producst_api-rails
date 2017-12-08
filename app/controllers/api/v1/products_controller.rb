@@ -13,7 +13,7 @@ module Api
       def create
         product = Product.new(product_params)
         if product.save
-          render json: product
+          render json: product , content_type: "application/json", status: 201
         else
           render json: { errors: product.errors }, status: 422
         end
