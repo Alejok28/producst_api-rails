@@ -33,7 +33,7 @@ module Api
       end
 
       def destroy
-        product = product.find(params[:id])
+        product = Product.find(params[:id])
         product.destroy
         head :no_content
       end
