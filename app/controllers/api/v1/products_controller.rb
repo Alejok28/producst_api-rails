@@ -23,9 +23,21 @@ module Api
       #   @product = Product.find(params[:id])
       # end
       #
-      # def update
-      #   @product = Product.update(params[:id], product_params)
-      # end
+      def update
+        product = Product.find(params[:id])
+        if products.update(product_params)
+          render json: product, status: 200
+        else
+          render json: {errors: product.errors}, status:422
+        end
+      end
+
+      def destroy
+        product = product.find(params[:id])
+        product.destroy
+        head: no_content
+
+      end
 
       private
         def product_params
